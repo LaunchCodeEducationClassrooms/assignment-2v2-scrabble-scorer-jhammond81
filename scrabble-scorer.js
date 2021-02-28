@@ -11,61 +11,33 @@ const oldPointStructure = {
 };
 let transformStyle;
 let simpleScore;
-let vowelBonusScore ;
+let vowelBonusScore= "aeiou";
 let userWord;
 let number=0;
 let scrabbleScore; 
-
-
-
-function scorerPrompt() {}
-
-
-
-let newPointStructure =
-{
-    
-      a: 1,
-		  e: 1,
-			i: 1,
-			o: 1,
-			u: 1,
-			l: 1,
-			n: 1,
-			r: 1,
-			s: 1,
-			t: 1,
-			d: 2,
-			g: 2,
-			b: 3,
-			c: 3,
-			m: 3,
-			p: 3,
-			f: 4,
-			h: 4,
-			v: 4,
-			w: 4,
-			y: 4,
-			k: 5,
-			j: 8,
-			x: 8,
-			q: 10,
-			z: 10,
-};
 let scoringAlgorithms;
-let score=0;
-
-  
-
+let newPointStructure= "abcdefghijklmnopqrstuvwxyz";
+let scorerPrompt;
 
 
- 
+
+
+
+
+
+
+
 	
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
+
+
+
+
+
 function runProgram(){
 
-  userWord=initialPrompt();
+      userWord=initialPrompt();
 
 
 
@@ -75,8 +47,10 @@ function runProgram(){
   console.log(transformStyle);
   
 }
+  
+  
   function oldScrabbleScorer(word,obj) {
-      let score=0
+      let score=0;
       for (var key in obj){
 
 
@@ -96,7 +70,7 @@ function runProgram(){
 }
 
   function scoreStylePrompt(){
-  return input.question("How do you want to score this? Enter 1 for classic 2 for new point structure or 3 for bonus vowel.");
+  return input.question("How do you want to score this? \n 0 - Simple: One point per character \n 1 - Vowel Bonus: Vowels are worth 3 points .\n 2 - Scrabble: Uses scrabble point system \n Enter 0, 1, or 2:");
 }
 
 
@@ -109,13 +83,13 @@ function oldScrabbleScorer(classic){
 }
 
 function transform(scoreMethod,word)  {
-  if(scoreMethod==("1")){
+  if(scoreMethod==("0")){
     return oldScrabbleScorer(word);
   }
-  if(scoreMethod==("2")){
+  if(scoreMethod==("1")){
     return vowelBonusScore(word);
   }
-  If(scoreMethod==("3"))
+  If(scoreMethod==("2"))
     return  newPointStructure(word);
   }
 
